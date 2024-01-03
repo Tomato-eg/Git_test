@@ -34,8 +34,8 @@ class RequestLog:
             else:
                 return {'code': 1, 'result': '接口请求失败,返回状态码: %s' % str(r.status_code)}
         except Timeout as e:
-            return {'code': 1, 'result': '请求超时:%s' % e}
+            return {'code': 2, 'result': '请求超时:%s' % e}
         except RequestException as e:
-            return {'code': 1, 'result': '请求异常:%s' % e}
+            return {'code': 3, 'result': '请求异常:%s' % e}
         except Exception as e:
-            return {'code': 1, 'result': 'get请求错误,错误原因:%s' % e}
+            return {'code': 4, 'result': 'get请求错误,错误原因:%s' % e}
