@@ -3,10 +3,10 @@
 # @Author  : Tomato
 # @Site    :
 # @File    : request_encapsulation.py
-from Public.test_requests import Requ
+from Public.test_requests import RequestLog as re
 
 
-class RequestEncapsulation:
+class TestRequestEncapsulation:
     def __init__(self, method, url, params):
         """
         初始化参数
@@ -17,9 +17,13 @@ class RequestEncapsulation:
         self.method = method
         self.url = url
         self.params = params
-        self.custom_request = Requ
+        self.custom_request = re
 
     def request_method(self):
+        """
+        判断选取方法
+        :return: 返回response
+        """
         if self.method == "GET":
             self.response = self.custom_request.get(self.url, self.params)
         elif self.method == "POST":
@@ -33,4 +37,3 @@ class RequestEncapsulation:
     def get_json_data(self):
         json_data = self.request_method()
         return json_data
-
